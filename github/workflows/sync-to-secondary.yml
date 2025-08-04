@@ -19,3 +19,4 @@ jobs:
           repository: hritikkushwaha/hritikkushwaha.github.io
           github_token: ${{ secrets.SECONDARY_REPO_PAT }}
           branch: main
+          force: true
