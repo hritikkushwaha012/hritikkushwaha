@@ -1,0 +1,22 @@
+name: Sync to hritikkushwaha.github.io
+
+on:
+  push:
+    branches:
+      - main  # Change this if your default branch is not "main"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout primary repo
+        uses: actions/checkout@v3
+
+      - name: Push to secondary repo
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          repository: hritikkushwaha/hritikkushwaha.github.io
+          github_token: ${{ secrets.REPO_SYNC }}
+          branch: main
+          force: true
