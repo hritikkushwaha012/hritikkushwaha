@@ -17,6 +17,6 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           repository: hritikkushwaha/hritikkushwaha.github.io
-          github_token: ${{ secrets.repo_sync}}
+          github_token: ${{ secrets.REPO_SYNC}}
           branch: main
           force: true
