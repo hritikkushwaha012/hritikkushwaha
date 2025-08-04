@@ -1,28 +1,23 @@
-name: Sync to GitHub Pages (Cross-Account)
+name: Sync to hritikkushwaha.github.io
 
 on:
   push:
-    branches: [ main ]  # Triggers on pushes to main branch
+    branches:
+      - main
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout your current repository
-      - name: Checkout source repo
-        uses: actions/checkout@v4
+      - name: Checkout primary repo
+        uses: actions/checkout@v3
 
-      # Step 2: Push to target repository (hritikkushwaha.github.io)
-      - name: Push to GitHub Pages
-        uses: ad-m/github-push-action@v0.8.0
+      - name: Push to secondary repo
+        uses: ad-m/github-push-action@v0.6.0
         with:
-          repository: hritikkushwaha/hritikkushwaha.github.io  # Target repo
-          github_token: ${{ secrets.REPO_PAT }}  # PAT from target account
-          branch: main  # GitHub Pages branch (must be 'main' for user sites)
-          force: true  # Overwrites target (safe for static sites)
-
-      # Optional: Verify the push worked
-      - name: Confirm sync
-        run: |
-          echo "Successfully synced to hritikkushwaha.github.io!"
+          repository: hritikkushwaha/hritikkushwaha.github.io
+          github_token: ${{ secrets.REPO_SYNC }}
+          branch: main
+          force: true
+          
